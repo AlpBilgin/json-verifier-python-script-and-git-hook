@@ -1,0 +1,1 @@
+# json-verifier-python-script-and-git-hook
