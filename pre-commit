@@ -1,0 +1,14 @@
+exit_code=1
+added_json_files=$(git diff --cached --diff-filter=d --name-only | grep .json$)
+./verify_given_json_files.py $added_json_files
+
+linter_exit_code=$?
+
+if [ $exit_code -ne 0 ]
+then
+  echo "❌ json.loads() errors have occurred "
+  exit 1
+else
+  echo "✅ json.loads() did not find any errors"
+  exit 0
+fi
